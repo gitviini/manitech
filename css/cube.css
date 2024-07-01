@@ -1,0 +1,52 @@
+* {
+  --face-size: 50px;
+  --face-distance: 25px;
+}
+
+.cube {
+  display: block;
+  min-width: var(--face-size);
+  max-width: var(--face-size);
+  min-height: var(--face-size);
+  max-height: var(--face-size);
+  transform: rotate3d(1, 0, 0, -90deg);
+}
+.cube * {
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.cube .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--face-size);
+  height: var(--face-size);
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.3333333333);
+}
+
+.face--front {
+  transform: translateZ(var(--face-distance));
+}
+
+.face--right {
+  transform: rotateY(90deg) translateZ(var(--face-distance));
+}
+
+.face--back {
+  transform: rotateY(180deg) translateZ(var(--face-distance));
+}
+
+.face--left {
+  transform: rotateY(-90deg) translateZ(var(--face-distance));
+}
+
+.face--top {
+  transform: rotateX(90deg) translateZ(var(--face-distance));
+}
+
+.face--bottom {
+  transform: rotateY(180deg) rotateX(90deg) translateZ(calc(-1 * var(--face-distance)));
+}/*# sourceMappingURL=cube.css.map */

@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  cursor: crosshair;
+  background-color: #234;
+}
+
+.display, .floor, .subs {
+  position: relative;
+  display: grid;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-content: center;
+  gap: 0;
+}
+
+.display {
+  transform: rotate3d(1, 1, 0, -45deg);
+  box-sizing: border-box;
+}
+
+.floor, .subs {
+  translate: 0 calc(-50% + 25px);
+  max-width: 50px;
+  transform: rotate3d(1, 0, 0, 90deg);
+}
+
+.buttons {
+  position: fixed;
+  display: none;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.d-pad {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;
+}
+.d-pad button {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.1333333333);
+  box-shadow: 1px 1px 0 solid #ddd, 2px 2px 0 solid #ddd, 3px 3px 0 solid #ddd, 4px 4px 0 solid #ddd, 5px 5px 0 solid #ddd;
+  box-sizing: border-box;
+}
+.d-pad button:active {
+  background-color: rgba(0, 0, 0, 0.3333333333);
+}
+
+@media screen and (max-width: 600px) {
+  .buttons {
+    display: flex;
+  }
+}/*# sourceMappingURL=style.css.map */

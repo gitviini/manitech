@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cube.css">
+    <link rel="stylesheet" href="/css/person.css">
+</head>
+<body>
+    <input type="number" placeholder="tamanho da sala (a * a)" class="size">
+    <button onclick="change()">adicionar layer</button>
+    <div class="create">
+    </div>
+</body>
+<script>
+    const display = document.querySelector('.create')
+    let input_size = document.querySelector('.size')
+    let floor = 1
+    let map = []
+
+    function change(){
+        let value = Number(input_size.value)
+        input_size.style.display = 'none'
+
+        map.push([])
+        let index = map.length-1
+        for(let n = 0; n < value; n++){
+            map[index].push([])
+            for(let i = 0; i < value; i++){
+                map[index][n].push(1)
+            }
+        }
+
+        display.innerHTML = ''
+        for(let index = 0; index < map.length; index++){
+            let layer = map[index]
+            for(let l = 0; l < layer.length; l++){
+                for(let c = 0; c < layer[l].length; c++){
+                    let cube = document.createElement('div')
+                    cube.style.width = '10px'
+                    cube.style.height = '10px'
+                    cube.style.background = '#fff'
+                    cube.style.cursor = 'pointer'
+                    display.appendChild(cube)
+                    cube.onclick = color(index,l,c)
+                }
+            }
+            display.innerHTML += '<hr width="100%">'
+        }
+    }
+
+    function color(layer=0,line=0,column=0){
+        map[layer][line][column] == 0 ? map[layer][line][column] = 1 : map[layer][line][column] = 0
+    }
+</script>
+</html>
